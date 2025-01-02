@@ -11,7 +11,7 @@ diamond_data_plot = diamond_data |>
   #to ensure data accuracy row with missing variables are removed
   drop_na() |> 
   #create a plot that assigns x, y axis and clarity
-  ggplot(mapping = aes(x = carat, y = price, color = clarity, background="white")) + 
+  ggplot(mapping = aes(x = pcarat, y = price, color = clarity, background="white")) + 
   #choose the type of graph
   geom_point() + 
   geom_smooth(method ="lm", se = FALSE) + geom_jitter() +
@@ -19,3 +19,7 @@ diamond_data_plot = diamond_data |>
   theme_bw()
 
 diamond_data_plot
+
+
+#Analysis for carat and price
+#Based on the data we can see that there is a strong/ positive correlation between carat and price. As the weight of the diamond increase so does its price. If pricing changes in any capacity, it is because of the weight of the diamond has changes as well. They are closely correlated.
