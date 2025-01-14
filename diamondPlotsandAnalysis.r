@@ -51,5 +51,13 @@ diamond_data |> drop_na() |> ggplot() +
   theme_bw()
 
 #Analysis:
-# In this histgram we can see the x-axis is wider than the bars we can observe because there are so many data points in the bars we can see, which means that there are few data points in the bars we can’t see, giving the illusion that there are no points and that the x-axis is long for no reason.
+# In this histogram we can see the x-axis is wider than the bars we can observe because there are so many data points in the bars we can see, which means that there are few data points in the bars we can’t see, giving the illusion that there are no points and that the x-axis is long for no reason.
 
+ggplot(data = diamonds,
+       mapping = aes(x = cut, y = depth, fill = cut)) +
+  geom_jitter(width = 0.2, color = "gray", alpha = 0.75) +
+  geom_boxplot(notch = TRUE, alpha = 0.5, outlier.shape = NA) +
+  theme_bw()
+
+#Analysis:
+#In this graph we are using boxplots to show the mean, median, mode and quartiles of each cut category. The purpose of using this specific line of code "geom_jitter(width = 0.2, color = "gray", alpha = 0.75)" is to scatter the points so they don’t overlap with each other which in turn gives us a more accurate depiction of the data. Also, alpha = 0.75 changes the transparency to slightly so visibility of points is easier to view. Width displays how wide the datapoints within each boxplot spread. For example, if the width was changed to 0.5 the datapoints would blend together making the graph harder to read. We are also able to view outliers within this graph.
