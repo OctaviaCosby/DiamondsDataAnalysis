@@ -22,3 +22,19 @@ diamond_data_plot = diamond_data |>
 ggsave(filename = "diamond_plot_final.png", plot = diamond_data_plot, width= 7, height = 7)
 
 diamond_data_plot
+
+#assign a new variable for the dataset plot
+diamond_plot_cut = diamond_data |> drop_na() |> ggplot(mapping = aes(x = carat, y = price)) +
+#create a scatter plot
+  geom_point(color = "gray", alpha = 1/10) + 
+  #stagger the points so they don't overlap
+  geom_jitter(color= "gray", alpha = 1/10) +
+  #create a linear method line that shows trend of data
+  geom_smooth(aes(method ="lm", se = TRUE, color = cut)) +
+  #divide the data by facet into cuts
+  facet_wrap(~cut, nrow=2) + 
+  #labels for the data
+  labs(title = "Correlation Between Carat Size, Cut, and Price", y = "Price ($)", x= "Carat (weight)", color = "Cut") +
+  theme(panel.background = element_rect(fill = "white"), panel.grid.major = element_line(color = "gray"), legend.position = "top")
+
+ggsave(filename = "diamond_plot_cut.png", plot = diamond_plot_cut, width= 7, height = 7)
