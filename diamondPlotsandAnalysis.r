@@ -61,3 +61,11 @@ ggplot(data = diamonds,
 
 #Analysis:
 #In this graph we are using boxplots to show the mean, median, mode and quartiles of each cut category. The purpose of using this specific line of code "geom_jitter(width = 0.2, color = "gray", alpha = 0.75)" is to scatter the points so they don’t overlap with each other which in turn gives us a more accurate depiction of the data. Also, alpha = 0.75 changes the transparency to slightly so visibility of points is easier to view. Width displays how wide the datapoints within each boxplot spread. For example, if the width was changed to 0.5 the datapoints would blend together making the graph harder to read. We are also able to view outliers within this graph.
+
+ggplot(data = diamonds,
+       mapping = aes(x = cut, y = depth, fill = cut)) +
+  geom_jitter(width = 0.2, color = "gray", alpha = 0.75) +
+  geom_violin(notch = TRUE, alpha = 0.5, outlier.shape = NA) +
+  theme_bw()
+
+  
