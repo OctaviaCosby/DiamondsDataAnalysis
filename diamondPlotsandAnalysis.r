@@ -46,4 +46,7 @@ ggsave(filename = "diamond_plot_cut.png", plot = diamond_plot_cut, width= 7, hei
 #Analysis: 
 #According to the data, there is a pattern that displays higher quality diamonds on average tend to be around and above 1 carat but no greater than 3 carats. IF, VVS1, VVS2 and VS1 are considered higher clarity diamonds, and they are all densely priced around the $10,000 price with carat being approximately 1-1.5.
 
+diamond_data |> drop_na() |> ggplot() +
+  geom_histogram(mapping = aes(x = depth), binwidth = 1.15) +
+  theme_bw()
 
