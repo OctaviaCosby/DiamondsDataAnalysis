@@ -24,7 +24,7 @@ ggsave(filename = "diamond_plot_final.png", plot = diamond_data_plot, width= 7, 
 diamond_data_plot
 
 #Analysis:
-#Based on the data we can see that there is a strong/ positive correlation between carat and price. As the weight of the diamond increase so does its price. If pricing changes in any capacity, it is because of the weight of the diamond has changes as well. They are closely correlated.
+#Based on the data we can see that there is a strong/ positive correlation between carat and price. As the weight of the diamond increase so does its price. If pricing changes in any capacity, it is because of the weight of the diamond has changes as well. They are closely correlated. #According to the data, there is a pattern that displays higher quality diamonds on average tend to be around and above 1 carat but no greater than 3 carats. IF, VVS1, VVS2 and VS1 are considered higher clarity diamonds, and they are all densely priced around the $10,000 price with carat being approximately 1-1.5.
 
 
 #assign a new variable for the dataset plot
@@ -44,9 +44,10 @@ diamond_plot_cut = diamond_data |> drop_na() |> ggplot(mapping = aes(x = carat, 
 ggsave(filename = "diamond_plot_cut.png", plot = diamond_plot_cut, width= 7, height = 7)
 
 #Analysis: 
-#According to the data, there is a pattern that displays higher quality diamonds on average tend to be around and above 1 carat but no greater than 3 carats. IF, VVS1, VVS2 and VS1 are considered higher clarity diamonds, and they are all densely priced around the $10,000 price with carat being approximately 1-1.5.
+#Cut style and carat weight directly effects the price of a diamond. As shown above, as we progress from fair cut to ideal cut we can see the density of price migrate between $15,00 to $20,000.
 
 diamond_data |> drop_na() |> ggplot() +
   geom_histogram(mapping = aes(x = depth), binwidth = 1.15) +
   theme_bw()
-
+#Analysis:
+#
