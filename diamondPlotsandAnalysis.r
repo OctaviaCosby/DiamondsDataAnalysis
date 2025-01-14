@@ -49,5 +49,7 @@ ggsave(filename = "diamond_plot_cut.png", plot = diamond_plot_cut, width= 7, hei
 diamond_data |> drop_na() |> ggplot() +
   geom_histogram(mapping = aes(x = depth), binwidth = 1.15) +
   theme_bw()
+
 #Analysis:
-#
+# In this histgram we can see the x-axis is wider than the bars we can observe because there are so many data points in the bars we can see, which means that there are few data points in the bars we can’t see, giving the illusion that there are no points and that the x-axis is long for no reason.
+
